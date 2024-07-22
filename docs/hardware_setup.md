@@ -74,6 +74,13 @@
 
 3. 쇼트 방지를 위하여 수축튜브나 절연테이프로 절연처리를 합니다.
 
+### Step 1-6 - ZAiV-m.2, cm4 방열판 장착
+
+<a></a>
+<img src="https://user-images.githubusercontent.com/25759564/60311869-ec530880-990d-11e9-9b9b-efabfcef251ㅈe.png" height=128/>
+
+1. 사진을 참고하여 ZAiV-m.2와 cm4에 방열판을 장착합니다.
+
 ## Step 2 - hardware 조립
 ### Step 2-1 - 카메라 브라켓과 댐퍼 플레이트 결합
 
