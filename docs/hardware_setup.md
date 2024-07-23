@@ -187,9 +187,11 @@
 <a></a>
 <img src="https://user-images.githubusercontent.com/25759564/60317621-bcfbc600-9924-11e9-9cb5-af886100dd48.png" height=128/>
 
-1. ZAiV-m.2를 고정하기 위하여 M2.5x5mm 나일론 서포트와 M2.5x5mm 나일론 볼트를 이용하여 사진과 같이 고정합니다.
+1. ZAiV-AHPm의 딥스위치를 사진과 같이 세팅합니다.
 
-2. ZAiV-AHPm를 사진을 참고하여 방향에 맞게 cm4에 장착합니다.
+2. ZAiV-m.2를 고정하기 위하여 M2.5x5mm 나일론 서포트와 M2.5x5mm 나일론 볼트를 이용하여 사진과 같이 고정합니다.
+
+3. ZAiV-AHPm를 사진을 참고하여 방향에 맞게 cm4에 장착합니다.
 
 ### Step 2-10 - 카메라 장착
 
