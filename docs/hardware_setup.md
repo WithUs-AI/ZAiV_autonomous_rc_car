@@ -6,7 +6,6 @@
 <a></a>
 <img src="../docs_images/hw/20240725_140357.jpg" height=200/>
 <img src="../docs_images/hw/20240725_143132.jpg" height=150/>
-<img src="../docs_images/hw/.jpg" height=128/>
 
 * 와이어 스트리퍼
 * 십자 드라이버
