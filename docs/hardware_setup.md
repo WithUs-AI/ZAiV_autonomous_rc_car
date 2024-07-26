@@ -32,7 +32,6 @@
 ### Step 1-2 - Rc Car 상판 제거
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_140752.jpg" height=128/>
 
 1. 위 사진에 표시되어 있는 볼트를 총 6개 제거합니다. 이 때 중간의 볼트 2개는 Step 2-6에서 사용함으로 따로 보관합니다.
@@ -40,7 +39,6 @@
 ### Step 1-3 - 기존 통신보드 제거
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_141022.jpg" height=128/>
 <img src="../docs_images/hw/20240725_141147.jpg" height=128/>
 <img src="../docs_images/hw/20240725_141233.jpg" height=128/>
@@ -54,7 +52,6 @@
 ### Step 1-4 - 배터리 단자 납땜
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_141316.jpg" height=128/>
 <img src="../docs_images/hw/20240725_141404.jpg" height=128/>
 <img src="../docs_images/hw/20240725_142318.jpg" height=128/>
@@ -69,7 +66,6 @@
 ### Step 1-5 - DC 5v 강하모듈 케이블 납땜
 
 <a></a>
-
 <img src="../docs_images/hw/20240726_155743.jpg" height=128/>
 <img src="../docs_images/hw/20240726_155813.jpg" height=128/>
 <img src="../docs_images/hw/20240726_155945.jpg" height=128/>
@@ -85,7 +81,6 @@
 ### Step 1-6 - ZAiV-m.2, cm4 방열판 장착
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_142243.jpg" height=128/>
 <img src="../docs_images/hw/20240725_142149.jpg" height=128/>
 
@@ -95,7 +90,6 @@
 ### Step 2-1 - 카메라 브라켓과 댐퍼 플레이트 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_143621.jpg" height=128/>
 <img src="../docs_images/hw/20240725_143625.jpg" height=128/>
 
@@ -104,7 +98,6 @@
 ### Step 2-2 - 댐퍼 플레이트와 베이스 플레이트 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_143811.jpg" height=128/>
 <img src="../docs_images/hw/20240725_143818.jpg" height=128/>
 <img src="../docs_images/hw/20240725_143858.jpg" height=128/>
@@ -123,7 +116,6 @@
 ### Step 2-3 - cm4와 cm4 Wi-Fi 안테나 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_144042.jpg" height=128/>
 <img src="../docs_images/hw/20240725_144053.jpg" height=128/>
 
@@ -132,7 +124,6 @@
 ### Step 2-4 - cm4와 베이스 플레이트 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_144141.jpg" height=128/>
 <img src="../docs_images/hw/20240725_144154.jpg" height=128/>
 <img src="../docs_images/hw/20240725_144449.jpg" height=128/>
@@ -146,7 +137,6 @@
 ### Step 2-5 - 모터 드라이버와 베이스 플레이트 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_144725.jpg" height=128/>
 <img src="../docs_images/hw/20240725_144730.jpg" height=128/>
 
@@ -157,7 +147,6 @@
 ### Step 2-6 - Rc Car와 차대 연결 부품 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_144928.jpg" height=128/>
 <img src="../docs_images/hw/20240725_144944.jpg" height=128/>
 <img src="../docs_images/hw/20240725_145023.jpg" height=128/>
@@ -173,7 +162,6 @@
 ### Step 2-7 - RC Car와 베이스 플레이트 결합
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_145059.jpg" height=128/>
 <img src="../docs_images/hw/20240725_145153.jpg" height=128/>
 <img src="../docs_images/hw/20240725_145222.jpg" height=128/>
@@ -187,7 +175,6 @@
 ### Step 2-8 - cm4 Wi-Fi 안테나 고정
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_145352.jpg" height=128/>
 
 1. cm4 Wi-Fi 안테나를 사진과 같이 M2.5x20mm 나일론 서포트 부위에 케이블타이로 고정합니다.
@@ -195,7 +182,6 @@
 ### Step 2-9 - ZAiV-AHPm 세팅 및 ZAiV-m.2 고정 브라켓 장착
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_150325_v2.jpg" height=128/>
 <img src="../docs_images/hw/20240725_145421.jpg" height=128/>
 <img src="../docs_images/hw/20240725_145813.jpg" height=128/>
@@ -211,7 +197,6 @@
 ### Step 2-10 - 카메라와 CM4 장착
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_145854.jpg" height=128/>
 <img src="../docs_images/hw/20240725_150014.jpg" height=128/>
 <img src="../docs_images/hw/20240725_150149.jpg" height=128/>
@@ -232,7 +217,6 @@
 ### Step 2-11 - ZAiV-m.2 장착
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_150423.jpg" height=128/>
 <img src="../docs_images/hw/20240725_150430.jpg" height=128/>
 <img src="../docs_images/hw/20240725_150501.jpg" height=128/>
@@ -246,7 +230,6 @@
 ### Step 3-1 - 모터 케이블 연결
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_150722.jpg" height=128/>
 
 1. 사진을 참고하여 색상에 주의하여 좌우 조향, 전진 모터 케이블을 모터 드라이버에 장착합니다.
@@ -254,7 +237,6 @@
 ### Step 3-2 - 전원 케이블, DC 5v 강하모듈 케이블 및 ZAiV-AHPm 전원 커넥터 연결 
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_150925.jpg" height=128/>
 <img src="../docs_images/hw/20240725_150929.jpg" height=128/>
 <img src="../docs_images/hw/20240725_151208.jpg" height=128/>
@@ -271,7 +253,6 @@
 ### Step 3-3 - 점퍼 케이블 연결
 
 <a></a>
-
 <img src="../docs_images/hw/jumper_cable.jpg" height=128/>
 <img src="../docs_images/hw/20240725_151342.jpg" height=128/>
 
@@ -280,7 +261,6 @@
 ### Step 3-4 - 배터리 체커기 연결방법
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_152940.jpg" height=128/>
 
 1. 배터리의 하얀색 커넥터의 검은색 라인에 배터리 체커기의 가장 왼쪽 단자를 기준으로 연결합니다.
@@ -291,7 +271,6 @@
 ### Step 3-5 - SD카드, 배터리 연결
 
 <a></a>
-
 <img src="../docs_images/hw/20240726_144920.jpg" height=128/>
 <img src="../docs_images/hw/20240725_152913.jpg" height=128/>
 <img src="../docs_images/hw/20240725_153122.jpg" height=128/>
@@ -301,7 +280,6 @@
 ### Step 3-6 - Rc Car 커버 가공 후 장착
 
 <a></a>
-
 <img src="../docs_images/hw/20240726_145112.jpg" height=128/>
 
 1. Rc Car 커버를 사진과 같이 가공하여 장착합니다.
@@ -309,7 +287,6 @@
 ## 주의사항
 
 <a></a>
-
 <img src="../docs_images/hw/20240725_153148.jpg" height=128/>
 
 Rc Car가 뒤집혔을 때 카메라 브라켓이 땅에 닿으면 파손 될 수 있습니다.

@@ -3,7 +3,6 @@
 이 페이지에는 ZAiV RC CAR의 구성에 필요한 부품이 나열되어 있습니다 부품을 받은 후 [hardware setup](./hardware_setup.md)을 따라하세요.
 
 <a></a>
-
 <img src="../docs_images/bom/20240725_115150.jpg" height=256>
 <img src="../docs_images/bom/20240725_114629.jpg" height=256>
 <img src="../docs_images/bom/20240725_142005.jpg" height=256>
