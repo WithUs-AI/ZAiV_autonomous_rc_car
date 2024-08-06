@@ -27,7 +27,18 @@
 * 쓰기 및 확인 과정은 SD Card Writer에 따라 다를 수 있으며, USB3.0을 사용하는 경우 약 7분 정도 소요됩니다.
 * 완료 후 마이크로 SD 카드를 ZAiV-AHPm에 삽입하세요.
 
-## Bash files
+## Step 2
+### Wi-Fi AP Name 변경
+* Terminal open
+* 설정파일 열기
+```
+sudo nano i2c-lcd-and-ap-mode-control/ap_config.json
+```
+* "ssid"항목을 원하는 ap 이름으로 변경
+* "CTRL + X > Y" 로 저장
+* Reboot
+
+## ETC - Bash files
 1. gst_pipe.bash
     >cam, mp4의 detection 결과를 hailoexportzmq을 사용하여 zmq 결과를 보내주는 .bash
 
