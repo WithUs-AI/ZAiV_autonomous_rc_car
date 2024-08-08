@@ -2,7 +2,8 @@
 
 이 페이지에는 ZAiV RC CAR의 구성에 필요한 software setup이 있습니다.
 
-## Step 1 - OS Setup
+## Step 1 - 사전준비
+
 ### Step 1-1 - Win32diskimager Install
 
 ![alt text](../docs_images/sw/1.png)
@@ -15,7 +16,21 @@
 
 * [구글 드라이브 링크](https://drive.google.com/file/d/1UW0SIPWCbd3zD2XrMaHbgLWok_XjHvC4/view?usp=drive_link)를 이용하여 이미지를 다운합니다.
 
-### Step 1-3 - SD Card Writing
+
+### Step 1-3 - Download & Install PotPlayer
+* Download: https://tv.kakao.com/guide/potplayer
+
+### Step 1-4 - Download & Install VSCode
+* Download: https://code.visualstudio.com/
+
+### Step 1-5 - Download & Install RealVNC
+* Download: https://www.realvnc.com/en/connect/download/viewer/windows/
+
+### Step 1-6 - Download & Install MobaXterm
+* Download: https://mobaxterm.mobatek.net/download.html
+
+## Step 2 - OS Setup
+### Step 2-1 - SD Card Writing
 
 ![alt text](../docs_images/sw/2024-08-02_.png)
 ![alt text](../docs_images/sw/2024-08-02_163910.png)
@@ -27,9 +42,14 @@
 * 쓰기 및 확인 과정은 SD Card Writer에 따라 다를 수 있으며, USB3.0을 사용하는 경우 약 7분 정도 소요됩니다.
 * 완료 후 마이크로 SD 카드를 ZAiV-AHPm에 삽입하세요.
 
-## Step 2 - AP Mod Setup
+## Step 3 - Hardware 환경 준비
+### Step 3-1 - LanCable연결(CroosCable)
+### Step 3-2 - IP 설정
+* PC IP: 192.168.30.171 (Raspberry Pi의 IP는 192.168.30.170)
 
-### Step 2-1 - Wi-Fi AP 채널 변경
+## Step 4 - AP Mod Setup
+
+### Step 4-1 - Wi-Fi AP 채널 변경
 
 * Terminal open
 * 설정파일 열기
@@ -39,7 +59,7 @@ sudo nano /etc/hostapd/hostapd.conf
 * "channel"항목을 1에서 11사이의 원하는 채널번호로 변경
 * "CTRL + X > Y > Enter" 로 저장
 
-### Step 2-2 - Wi-Fi AP Name 변경
+### Step 4-2 - Wi-Fi AP Name 변경
 
 * Terminal open
 * 설정파일 열기
