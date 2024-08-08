@@ -3,10 +3,6 @@
 export DISPLAY=:0
 export LIBCAMERA_RPI_TUNING_FILE=/home/pi/Work/rc/imx219_175/imx219_160_v2.json
 
-# echo "mp4 name: "
-# read name
-# echo "mp4 name: $name.mp4"
-
 echo -n "mp4 name: "
 read name
 
@@ -21,13 +17,9 @@ name="${name// /_}"
 
 echo "mp4 name: $name.mp4"
 
-
-
 # 파이프라인 정의
-#PIPELINE="gst-launch-1.0 libcamerasrc camera-name="/base/soc/i2c0mux/i2c@0/ov5647@36" ! video/x-raw, width=640, height=480, framerate=58/1 ! videoconvert ! queue ! x264enc ! mp4mux fragment-duration=500 ! filesink location=$name.mp4"
-#PIPELINE="gst-launch-1.0 libcamerasrc camera-name="/base/soc/i2c0mux/i2c@0/ov5647@36" ! video/x-raw, width=640, height=480, framerate=58/1 ! videoconvert ! queue ! x264enc tune=zerolatency ! mp4mux fragment-duration=100 ! filesink location=$name.mp4"
-#PIPELINE="gst-launch-1.0 libcamerasrc camera-name="/base/soc/i2c0mux/i2c\@0/imx219\@10" ! video/x-raw, width=640, height=480, framerate=58/1 ! videoconvert ! queue ! x264enc ! mp4mux fragment-duration=100 ! filesink location=$name.mp4"
-PIPELINE="gst-launch-1.0 -v libcamerasrc camera-name="/base/soc/i2c0mux/i2c\@1/imx219\@10" ! video/x-raw, width=1600, height=1200, framerate=40/1 ! videoscale ! video/x-raw, width=640, height=480 ! videoconvert ! queue ! x264enc ! mp4mux fragment-duration=100 ! filesink location=./video/$name.mp4"
+
+PIPELINE="gst-launch-1.0 -v libcamerasrc camera-name="/base/soc/i2c0mux/i2c\@1/imx219\@10" ! video/x-raw, width=1600, height=1200, framerate=40/1 ! videoscale ! video/x-raw, width=640, height=480 ! videoconvert ! queue ! x264enc ! mp4mux fragment-duration=100 ! filesink location=./$name.mp4"
 
 
 
