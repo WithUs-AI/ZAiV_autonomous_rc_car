@@ -57,11 +57,11 @@ print("GPIOs initialization complete.")
 subprocess_record = None
 subprocess_inference = None
 
-pre_exec_commands = [
-    "sudo modprobe hailo_pci",
-    "export DISPLAY=:0",
-    "export LIBCAMERA_RPI_TUNING_FILE=/home/pi/Work/rc/imx219_175/imx219_160_v2.json"
-]
+# 환경 변수 세팅
+env = os.environ.copy()
+env['LIBCAMERA_RPI_TUNING_FILE'] = '/home/pi/Work/rc/imx219_175/imx219_160_v2.json'
+env['DISPLAY'] = ':0'
+
 
 ###################################################################################
 ################################ ZeroMQ Variables #################################
@@ -168,6 +168,7 @@ button_names = {
 axis_map = []
 button_map = []
 jsdev = None
+state = 0
 
 ###################################################################################
 ##################################### Functions ###################################
@@ -258,10 +259,10 @@ def process_js_manual_control():
                     button_states[button] = value
                     if value:
                         print("%s pressed" % (button))
-                        if button == "y":
+                        if button == 'y':
                             pi.write(SERVO_PIN_A, 0)
                             pi.write(SERVO_PIN_B, 1)
-                        elif button == "a":
+                        elif button == 'a':
                             pi.write(SERVO_PIN_A, 1)
                             pi.write(SERVO_PIN_B, 0)
 
@@ -352,7 +353,7 @@ def process_js_auto_control():
         if len(sub_objects) > 0:  # sub_objects가 있을 경우 조향을 직진으로
             pi.write(SERVO_PIN_A, 0)
             pi.write(SERVO_PIN_B, 0)
-
+        
         left_points = []  # 왼쪽 포인트 저장 리스트
         right_points = []  # 오른쪽 포인트 저장 리스트
 
@@ -380,6 +381,7 @@ def process_js_auto_control():
         if len(left_points) > 0 and len(right_points) > 0:
             left_points.sort(key=lambda x: (x[1], x[0]))  # 왼쪽 포인트를 y 좌표 기준으로 정렬
             right_points.sort(key=lambda x: (x[1], x[0]))  # 오른쪽 포인트를 y 좌표 기준으로 정렬
+            print(len(left_points), len(right_points))
 
             # 가장 높은 y 값을 가진 포인트 비교하여 조향모터 제어
             if left_points[-1][1] > right_points[-1][1]:  # 왼쪽 포인트 y값이 더 높을 경우 좌회전
@@ -405,8 +407,8 @@ def process_js_auto_control():
             pi.write(SERVO_PIN_B, 0)
 
         # 캔버스에 그려진 이미지 표시
-        cv2.imshow("Canvas", canvas)  # OpenCV 윈도우에 캔버스 이미지 표시
-        cv2.waitKey(1)
+        # cv2.imshow("Canvas", canvas)  # OpenCV 윈도우에 캔버스 이미지 표시
+        # cv2.waitKey(1)
         #if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' 키를 누르면 루프 종료
         #    break
         #time.sleep(0.05)  # 50ms 대기
@@ -441,7 +443,7 @@ def process_record(bRecord = False):
             '!', 'x264enc',
             '!', 'mp4mux', 'fragment-duration=100',
             '!', 'filesink', f_path
-        ])
+        ], env=env)
 
         print("Run record subprocess")
     else:
@@ -478,7 +480,7 @@ def process_inference(bInference = False):
             '!', 'queue', 'max-size-buffers=5', 'max-size-bytes=0', 'max-size-time=0',
             '!', 'videoconvert', 'n-threads=3',
             '!', 'fpsdisplaysink', 'video-sink=ximagesink', 'name=hailo_display', 'sync=false', 'text-overlay=true'
-        ])
+        ], env=env)
 
         time.sleep(3)
         connect_socket()
@@ -494,63 +496,78 @@ def process_inference(bInference = False):
 
         kill_gstreamer_processes()
 
+def callback(gpio, level, tick):
+    print(f"GPIO {gpio} changed to level {level} at {tick}")
+    global state
+    if pi.read(GPIO_INPUT_BUTTON) == 0:
+        pi.write(SERVO_PIN_A, 0)
+        pi.write(SERVO_PIN_B, 0)
+        # 직진 모터 동작 정지
+        pi.set_PWM_dutycycle(MOTOR_PIN_A, 0)
+        pi.set_PWM_dutycycle(MOTOR_PIN_B, 0)
+        if pi.read(GPIO_INPUT_RUN_TYPE) == 0: # Run type - Record
+
+            if subprocess_inference != None:
+                print('Running inference process. Will be terminate')
+                process_inference(False)
+
+            if subprocess_record == None:
+                print('Record process is None')
+                process_record(True)
+                #process_js_manual_control()
+                state=0
+                if pi.read(GPIO_OUTPUT_STATE_LED) == 0:
+                    pi.write(GPIO_OUTPUT_STATE_LED, 1)
+            else:
+                print('Running record process. Will be terminate')
+                process_record(False)
+                if pi.read(GPIO_OUTPUT_STATE_LED) == 1:
+                    pi.write(GPIO_OUTPUT_STATE_LED, 0)
+        else: 
+            if subprocess_record != None:
+                print('Running record process. Will be terminate')
+                process_record(False)
+
+            if subprocess_inference == None:
+                print('Inference process is None')
+                process_inference(True)
+                state=1
+                #process_js_auto_control()
+                if pi.read(GPIO_OUTPUT_STATE_LED) == 0:
+                    pi.write(GPIO_OUTPUT_STATE_LED, 1)
+            else:
+                print('Running inference process. Will be terminate')
+                process_inference(False)
+                if pi.read(GPIO_OUTPUT_STATE_LED) == 1:
+                    pi.write(GPIO_OUTPUT_STATE_LED, 0)
+        time.sleep(1)
+
+pi.callback(GPIO_INPUT_BUTTON, pigpio.EITHER_EDGE, callback)  # 이벤트 지정
+
+
 ###################################################################################
 ###################################### Loops ######################################
 ###################################################################################
 try:
     kill_gstreamer_processes()
-    for cmd in pre_exec_commands:
-        run_command(cmd)
 
     while True:
-
-        if pi.read(GPIO_INPUT_BUTTON) == 0:
-            if pi.read(GPIO_INPUT_RUN_TYPE) == 0:
-
-                if subprocess_inference != None:
-                    print('Running inference process. Will be terminate')
-                    process_inference(False)
-
-                if subprocess_record == None:
-                    print('Record process is None')
-                    process_record(True)
-                    if pi.read(GPIO_OUTPUT_STATE_LED) == 0:
-                        pi.write(GPIO_OUTPUT_STATE_LED, 1)
-                else:
-                    print('Running record process. Will be terminate')
-                    process_record(False)
-                    if pi.read(GPIO_OUTPUT_STATE_LED) == 1:
-                        pi.write(GPIO_OUTPUT_STATE_LED, 0)
-            else:
-                if subprocess_record != None:
-                    print('Running record process. Will be terminate')
-                    process_record(False)
-
-                if subprocess_inference == None:
-                    print('Inference process is None')
-                    process_inference(True)
-                    if pi.read(GPIO_OUTPUT_STATE_LED) == 0:
-                        pi.write(GPIO_OUTPUT_STATE_LED, 1)
-                else:
-                    print('Running inference process. Will be terminate')
-                    process_inference(False)
-                    if pi.read(GPIO_OUTPUT_STATE_LED) == 1:
-                        pi.write(GPIO_OUTPUT_STATE_LED, 0)
-            time.sleep(1)
 
         if subprocess_record == None:
             if jsdev != None:
                 jsdev.close()
                 jsdev = None
         if pi.read(GPIO_INPUT_RUN_TYPE) == 0: # Run type - Record
+            #process_js_manual_control()
             if subprocess_record != None:
                 process_js_manual_control()
         else: # Run type - Inference
+            #process_js_auto_control()
             if subprocess_inference != None:
                 process_js_auto_control()
 
         # 상태 체크 간격
-        #time.sleep(0.1)
+        time.sleep(0.01)
 
 except KeyboardInterrupt:
     pass
