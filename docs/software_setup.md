@@ -13,7 +13,7 @@
 ### Step 1-2 - 라즈베라파이 이미지 다운로드
 
 
-* [구글 드라이브 링크](https://drive.google.com/file/d/1psG1f2amls1C121VtmS8rhU9jhWGPPTR/view?usp=drive_link)를 이용하여 이미지를 다운합니다.
+* [구글 드라이브 링크](https://drive.google.com/file/d/1h9QURTCQ-jmGecjlD5A2nGeZW_GCWYb4/view?usp=drive_link)를 이용하여 이미지를 다운합니다.
 
 
 ### Step 1-3 - Download & Install PotPlayer
