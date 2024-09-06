@@ -90,6 +90,7 @@ sudo nano i2c-lcd-and-ap-mod-control/ap_config.json
     >gst_pipe.bash에서 보낸 zmq 결과를 받은 후 파싱하여 opnecv imshow로 출력 후 rc car를 동작시키는 자율주행 .py
 
 ## Iroom School
-1. datasets
-   > [Downloads](https://drive.google.com/file/d/1oX6Y3SYITUGtzSQc_FbPgUiVHn7ZnZ5J/view?usp=sharing)
+1. files
+   > [Downloads dataset](https://drive.google.com/file/d/1oX6Y3SYITUGtzSQc_FbPgUiVHn7ZnZ5J/view?usp=sharing)
+   > [Downloads weight file](https://drive.google.com/file/d/1ggZqE7mfm3wDvsjyfoJWL03B-k9DLm2k/view?usp=sharing)
 
