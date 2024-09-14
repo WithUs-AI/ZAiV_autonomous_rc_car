@@ -94,4 +94,6 @@ sudo nano i2c-lcd-and-ap-mod-control/ap_config.json
    > [Downloads dataset](https://drive.google.com/file/d/1oX6Y3SYITUGtzSQc_FbPgUiVHn7ZnZ5J/view?usp=sharing)
    
    > [Downloads weight file](https://drive.google.com/file/d/1ggZqE7mfm3wDvsjyfoJWL03B-k9DLm2k/view?usp=sharing)
+   
+   > [Running Guide](http://teran.asuscomm.com:55000/fbsharing/G5RuayPL)
 
